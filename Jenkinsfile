@@ -4,6 +4,8 @@ pipeline {
     environment {
         KUBECONFIG = "/var/lib/jenkins/.kube/config"  // Path to your kubeconfig file on Jenkins server
         NAMESPACE = "halfskirmish"                          // Namespace where the deployment will occur
+        IMAGE_NAME = "192.168.1.2:32000/halfskirmish-fes"     // Updated image name
+        MANIFESTS_PATH = "manifests"                  // Path to the manifests folder (no subfolders)
     }
 
     stages {
@@ -11,25 +13,13 @@ pipeline {
             steps {
                 script {
                     // Define variables
-                    def imageName = "192.168.1.2:32000/halfskirmish_fes"
-                    def dockerfile = ""
-                    def imageTag = ""
-
-                    // Determine which Dockerfile and tag to use based on the branch
-                    if (env.BRANCH_NAME == 'QualityAssurance') {
-                        dockerfile = 'Dockerfile.qa'
-                        imageTag = 'qa'
-                    } else if (env.BRANCH_NAME == 'Prod') {
-                        dockerfile = 'Dockerfile.prod'
-                        imageTag = 'prod'
-                    } else {
-                        error("Unsupported branch: ${env.BRANCH_NAME}")
-                    }
+                    def dockerfile = 'Dockerfile'      // Dockerfile for building the image
+                    def imageTag = 'latest'            // Always push with 'latest' tag
 
                     // Build and push Docker image to the registry
                     docker.withRegistry('http://192.168.1.2:32000') {
-                        def dockerImage = docker.build("${imageName}:${imageTag}", "-f ${dockerfile} .")
-                        dockerImage.push(imageTag)
+                        def dockerImage = docker.build("${IMAGE_NAME}:${imageTag}", "-f ${dockerfile} .")
+                        dockerImage.push(imageTag)      // Push the image with 'latest' tag
                     }
 
                     // Save imageTag for later use in the pipeline
@@ -41,25 +31,16 @@ pipeline {
         stage('Deploy to Kubernetes') {
             steps {
                 script {
-                    def imageName = "192.168.1.2:32000/halfskirmish_fes"
-                    def manifestsPath = ""
-
-                    // Use the stored imageTag for deployment
-                    def imageTag = env.IMAGE_TAG
-
-                    // Determine which manifests to use based on the branch
-                    if (env.BRANCH_NAME == 'master') {
-                        manifestsPath = 'manifests'
-                    }
+                    def imageTag = env.IMAGE_TAG          // Use 'latest' tag for deployment
 
                     // Update the deployment manifest with the correct image and tag
                     sh """
-                    sed -i 's|image:.*|image: ${imageName}:${imageTag}|' ${manifestsPath}/deployment.yaml
+                    sed -i 's|image:.*|image: ${IMAGE_NAME}:${imageTag}|' ${MANIFESTS_PATH}/deployment.yaml
                     """
 
                     // Apply the updated Kubernetes manifests
                     sh """
-                    kubectl --kubeconfig=${KUBECONFIG} apply -f ${manifestsPath}/ -n ${NAMESPACE}
+                    kubectl --kubeconfig=${KUBECONFIG} apply -f ${MANIFESTS_PATH}/ -n ${NAMESPACE}
                     """
                 }
             }
@@ -68,16 +49,10 @@ pipeline {
         stage('Force Rolling Restart') {
             steps {
                 script {
-                    // Conditionally restart based on the branch
-                    if (env.BRANCH_NAME == 'QualityAssurance') {
-                        sh "kubectl --kubeconfig=${KUBECONFIG} rollout restart deployment/halfskirmish-fes -n ${NAMESPACE}"
-                    } else if (env.BRANCH_NAME == 'Prod') {
-                        sh "kubectl --kubeconfig=${KUBECONFIG} rollout restart deployment/halfskirmish-fes-prod -n ${NAMESPACE}"
-                    } else {
-                        error("Unsupported branch: ${env.BRANCH_NAME}")
-                    }
+                    // Restart the deployment to apply the new image
+                    sh "kubectl --kubeconfig=${KUBECONFIG} rollout restart deployment/halfskirmish-fes -n ${NAMESPACE}"
                 }
             }
-        }
-    }
+        }
+    }
 }
