@@ -51,8 +51,8 @@ pipeline {
                 script {
                     // Restart the deployment to apply the new image
                     sh "kubectl --kubeconfig=${KUBECONFIG} rollout restart deployment/halfskirmish-fes -n ${NAMESPACE}"
-                }
+}
             }
-        }
-    }
+        }
+    }
 }
