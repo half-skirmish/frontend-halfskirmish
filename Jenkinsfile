@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'docker:20.10.7-dind'  // Docker image with Docker-in-Docker support
+            args '--privileged'  // Grant the container the necessary privileges to run Docker-in-Docker
+        }
+    }
 
     environment {
         KUBECONFIG = "/var/lib/jenkins/.kube/config"  // Path to your kubeconfig file on Jenkins server
@@ -17,12 +22,12 @@ pipeline {
                     def imageTag = 'latest'        // Always push with 'latest' tag
 
                     // Build and push Docker image to the registry
-                    // Set HOME environment variable to avoid Snap Docker issue
-                    withEnv(["HOME=/tmp"]) {
-                        docker.withRegistry('http://192.168.1.2:32000') {
-                            def dockerImage = docker.build("${IMAGE_NAME}:${imageTag}", "-f ${dockerfile} .")
-                            dockerImage.push(imageTag)  // Push the image with 'latest' tag
-                        }
+                    withEnv(["HOME=/tmp"]) {  // Force HOME to /tmp to avoid Snap issue
+                        // Build Docker image in the DinD container
+                        sh """
+                            docker build -t ${IMAGE_NAME}:${imageTag} -f ${dockerfile} .
+                            docker push ${IMAGE_NAME}:${imageTag}  // Push the image to the registry
+                        """
                     }
 
                     // Save imageTag for later use in the pipeline
