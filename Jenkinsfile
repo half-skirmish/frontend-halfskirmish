@@ -41,7 +41,7 @@ pipeline {
 
                     // Apply the updated Kubernetes manifests
                     sh """
-                    kubectl --kubeconfig=${KUBECONFIG} apply -f ${MANIFESTS_PATH}/ -n ${NAMESPACE}
+                    microk8s kubectl --kubeconfig=${KUBECONFIG} apply -f ${MANIFESTS_PATH}/ -n ${NAMESPACE}
                     """
                 }
             }
@@ -51,7 +51,7 @@ pipeline {
             steps {
                 script {
                     // Restart the deployment to apply the new image
-                    sh "kubectl --kubeconfig=${KUBECONFIG} rollout restart deployment/halfskirmish-fes -n ${NAMESPACE}"
+                    sh "microk8s kubectl --kubeconfig=${KUBECONFIG} rollout restart deployment/halfskirmish-fes -n ${NAMESPACE}"
                 }
             }
         }
