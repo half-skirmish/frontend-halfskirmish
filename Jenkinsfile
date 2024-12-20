@@ -5,7 +5,7 @@ pipeline {
     environment {
         KUBECONFIG = "/var/lib/jenkins/.kube/config"  // Path to your kubeconfig file on Jenkins server
         NAMESPACE = "halfskirmish"                          // Namespace where the deployment will occur
-        IMAGE_NAME = "192.168.1.2:32000/halfskirmish-fes"     // Updated image name
+        IMAGE_NAME = "192.168.1.40:32000/halfskirmish-fes"     // Updated image name
         MANIFESTS_PATH = "manifests"                  // Path to the manifests folder (no subfolders)
     }
 
@@ -18,7 +18,7 @@ pipeline {
                     def imageTag = 'latest'            // Always push with 'latest' tag
 
                     // Build and push Docker image to the registry
-                    docker.withRegistry('http://192.168.1.2:32000') {
+                    docker.withRegistry('http://192.168.1.40:32000') {
                         def dockerImage = docker.build("${IMAGE_NAME}:${imageTag}", "-f ${dockerfile} .")
                         dockerImage.push(imageTag)      // Push the image with 'latest' tag
                     }
