@@ -18,11 +18,9 @@ spec:
     spec:
       containers:
       - name: halfskirmish-fes-container
-        image: 192.168.1.40:32000/halfskirmish_fes:latest
+        image: 192.168.1.40:32000/halfskirmish-fes:latest
         imagePullPolicy: Always   # Ensure latest image is always pulled
         ports:
         - containerPort: 3000
-      imagePullSecrets:              # Add this section if pulling from a private registry
-      - name: regcred                # Replace 'regcred' with the correct secret name
 
 

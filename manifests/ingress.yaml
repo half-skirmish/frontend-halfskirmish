@@ -4,10 +4,11 @@ metadata:
   name: halfskirmish-fes-ingress
   namespace: halfskirmish
   annotations:
+    kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-    - host: qa.halfskirmish.co.in
+    - host: halfskirmish.com
       http:
         paths:
           - path: /
