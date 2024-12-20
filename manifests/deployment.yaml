@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: halfskirmish-fes
+  namespace: halfskirmish
+  labels:
+    app: halfskirmish-fes
+spec:
+  replicas: 1
+  revisionHistoryLimit: 0  # Retains only the last 2 ReplicaSets
+  selector:
+    matchLabels:
+      app: halfskirmish-fes
+  template:
+    metadata:
+      labels:
+        app: halfskirmish-fes
+    spec:
+      containers:
+      - name: halfskirmish-fes-container
+        image: 192.168.1.2:32000/halfskirmish_fes:latest
+        imagePullPolicy: Always   # Ensure latest image is always pulled
+        ports:
+        - containerPort: 3000
+      imagePullSecrets:              # Add this section if pulling from a private registry
+      - name: regcred                # Replace 'regcred' with the correct secret name
+
+

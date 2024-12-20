@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: halfskirmish-fes-svc
+  namespace: halfskirmish
+  labels:
+    app: halfskirmish-fes
+spec:
+  selector:
+    app: halfskirmish-fes
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 3000
+  type: NodePort

@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         KUBECONFIG = "/var/lib/jenkins/.kube/config"  // Path to your kubeconfig file on Jenkins server
-        NAMESPACE = "dinara"                          // Namespace where the deployment will occur
+        NAMESPACE = "halfskirmish"                          // Namespace where the deployment will occur
     }
 
     stages {
