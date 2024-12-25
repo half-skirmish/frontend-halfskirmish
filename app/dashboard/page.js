@@ -1,9 +1,9 @@
 import Image from "next/image";
-import { Navbar } from "./components/Navbar";
-export default function Home() {
+
+export default function Dashboard() {
   return (
-    <div>
-     {/* <h2>HALF SKIRMISH</h2>
+    <div className="flex flex-col items-center font-bold font-serif">
+     <h2>HALF SKIRMISH</h2>
      <p>The Grind Won't Stop!</p>
      <Image
      src= "/logolight.png"
@@ -11,9 +11,7 @@ export default function Home() {
      alt = "logolight.png"
      >
       </Image>
- */}
- <Navbar/>
-     </div>
+    </div>
   );
 }
 
