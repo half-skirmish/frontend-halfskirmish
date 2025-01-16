@@ -18,7 +18,7 @@ export const Navbar = () =>{
                 <li>|</li>
                 <li>Blog</li>
                 <li>|</li>
-                <li>Designs</li>
+                <li>Portfolio</li>
             </ul>
         </div>
         <div className="flex justify-end text-2xl">
