@@ -1,19 +1,12 @@
-import Image from "next/image";
 import { Navbar } from "./components/Navbar";
+import Homepage from "./components/Homepage";  // Import the new Homepage component
+
 export default function Home() {
   return (
     <div>
-     {/* <h2>HALF SKIRMISH</h2>
-     <p>The Grind Won't Stop!</p>
-     <Image
-     src= "/logolight.png"
-     width = {500} height= {500}
-     alt = "logolight.png"
-     >
-      </Image>
- */}
- <Navbar/>
-     </div>
+      <Navbar />
+      <Homepage />  {/* Use the Homepage component */}
+    </div>
   );
 }
 
