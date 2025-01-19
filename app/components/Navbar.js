@@ -38,7 +38,7 @@ export const Navbar = () => {
                 </button>
 
                 {/* Let's Talk Button with Purple Base to Deep Blue Hover Effect */}
-                <button className="text-[22px] bg-purple-700 text-white w-[133px] h-[40px] rounded-[20px] hover:bg-[#1D3557] transition-colors">
+                <button className="text-[22px] bg-purple-700 dark:bg-red-500 text-white w-[133px] h-[40px] rounded-[20px] hover:bg-[#1D3557] transition-colors">
                     Let's Talk
                 </button>
             </div>
