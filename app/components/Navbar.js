@@ -1,14 +1,23 @@
+"use client"
 import Image from "next/image";
 import { Inter } from "@next/font/google";
+import { useState } from "react";
 
 // Load the Inter font with Bold weight
 const inter = Inter({ subsets: ["latin"], weight: ["700"] });
-import { Inter } from "@next/font/google";
 
-// Load the Inter font with Bold weight
-const inter = Inter({ subsets: ["latin"], weight: ["700"] });
+
 
 export const Navbar = () => {
+    const [visible, setVisible] = useState(false)
+    const MenuonClick = () => {
+        if (visible){
+            setVisible(false)
+        }
+        else{
+            setVisible(true)
+        }
+    }
     return (
         <div className={`${inter.className} w-screen bg-white text-black`}>
             {/* Navbar */}
@@ -51,13 +60,13 @@ export const Navbar = () => {
 
                 {/* Mobile Menu Toggle Button */}
                 <div className="md:hidden group">
-                    <button className="text-3xl">
+                    <button className="text-3xl" onClick={() => MenuonClick()}>
                         {/* Hamburger Icon */}
                         <span className="block">☰</span>
                     </button>
 
                     {/* Mobile Menu */}
-                    <div className="absolute left-0 right-0 top-16 bg-white w-full flex flex-col items-center space-y-4 mt-4 hidden group-hover:block">
+                    {visible && (<div className="absolute left-0 right-0 top-16 bg-white w-full flex flex-col items-center space-y-4 mt-4">
                         {/* Home Button */}
                         <button className="text-[24px] py-2 px-4 w-full text-center">Home</button>
 
@@ -68,10 +77,11 @@ export const Navbar = () => {
                         <button className="text-[24px] py-2 px-4 w-full text-center">Portfolio</button>
 
                         {/* Let's Talk Button */}
-                        <button className="text-[22px] bg-purple-700 dark:bg-red-500 text-white w-full py-2 px-4 text-center rounded-[20px] hover:bg-[#1D3557] transition-colors">
+                        <button className="text-[24px] py-2 px-4 w-full text-center">
                             Let's Talk
                         </button>
-                    </div>
+                    </div>)}
+                    
                 </div>
             </div>
         </div>
