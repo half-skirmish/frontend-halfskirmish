@@ -3,6 +3,10 @@ import { Inter } from "@next/font/google";
 
 // Load the Inter font with Bold weight
 const inter = Inter({ subsets: ["latin"], weight: ["700"] });
+import { Inter } from "@next/font/google";
+
+// Load the Inter font with Bold weight
+const inter = Inter({ subsets: ["latin"], weight: ["700"] });
 
 export const Navbar = () => {
     return (
