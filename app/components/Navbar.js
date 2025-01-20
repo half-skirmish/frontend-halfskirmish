@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image";
-import { Inter } from "@next/font/google";
+import { Inter } from "next/font/google";
 import { useState } from "react";
 
 // Load the Inter font with Bold weight
