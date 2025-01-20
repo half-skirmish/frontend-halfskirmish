@@ -1,48 +1,42 @@
-// /app/components/Homepage.js
-
 export default function Homepage() {
-    return (
-      <section style={{ backgroundColor: '#f8f8f8', padding: '50px 20px' }}>
-        {/* Title Section */}
-        <h1 style={{ textAlign: 'center' }}>Title</h1>
-        <p style={{ textAlign: 'center', fontSize: '1.2rem' }}>
-          {/* Your Homepage Description */}
-        </p>
-  
-        {/* Image Grid Section */}
+  return (
+    <section style={{ backgroundColor: '#f8f8f8', padding: '50px 20px' }}>
+      {/* Image Grid Section with Margin Adjusted */}
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(12, 1fr)', // 12 columns grid
+          gap: '24px', // Gutter between columns
+          margin: '0px auto px', // Added 35px margin-top for the required space between the buttons and image grid
+          maxWidth: 'calc(100% - 160px)', // For margin of 80px on each side
+        }}
+      >
+        {/* Main Image Box (centered) */}
         <div
           style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(12, 1fr)', // 12 columns grid
-            gap: '24px', // Gutter between columns
-            margin: '80px auto',
-            maxWidth: 'calc(100% - 160px)', // For margin of 80px on each side
+            gridColumn: 'span 12', // This will make the image span the full 12 columns (left side)
+            padding: '10px',
+            display: 'flex',
+            justifyContent: 'center', // Center the main image
+            alignItems: 'center',
           }}
         >
-          {/* Grid item for image (left side) */}
+          {/* Applying the image with a stroke (border) */}
           <div
             style={{
-              gridColumn: 'span 12', // This will make the image span the full 12 columns (left side)
-              padding: '10px',
-              display: 'flex',
-              justifyContent: 'flex-start', // Align the image to the left
-              alignItems: 'center',
+              width: '100%', // Make the image responsive to the width of the screen
+              maxWidth: '845px', // Set max width of the image
+              height: '570px', // Keep the height constant as required
+              backgroundColor: '#ddd', // Placeholder color (if image is not loaded)
+              borderRadius: '8px',
+              border: '4px solid #6b21a8', // Changed border to purple-700
+              overflow: 'hidden',
             }}
           >
-            {/* Applying the image with a stroke (border) */}
-            <div
-              style={{
-                width: '845px',
-                height: '570px',
-                backgroundColor: '#ddd',  // Placeholder color (if image is not loaded)
-                borderRadius: '8px',
-                border: '4px solid #000',  // Stroke (border) around the image
-                overflow: 'hidden',
-              }}
-            >
+            <a href="your-main-image-link" target="_blank" rel="noopener noreferrer">
               <img
-                src="path-to-your-image.jpg"  // Replace with your image path
-                alt="Image"
+                src="path-to-your-main-image.jpg" // Replace with your main image path
+                alt="Main Image - Newest Post" // Updated alt text
                 style={{
                   width: '100%',
                   height: '100%',
@@ -50,9 +44,195 @@ export default function Homepage() {
                   borderRadius: '8px',
                 }}
               />
-            </div>
+            </a>
           </div>
         </div>
-      </section>
-    );
-  }
+
+        {/* Additional image boxes on the right side */}
+        <div
+          style={{
+            gridColumn: 'span 12',
+            display: 'flex',
+            justifyContent: 'space-between',
+            gap: '24px', // 24px gap between the boxes
+          }}
+        >
+          {/* First image box */}
+          <div
+            style={{
+              width: '412px',
+              height: '154px',
+              backgroundColor: '#fff', // White background for the box
+              borderRadius: '32px',
+              overflow: 'hidden',
+              border: '4px solid #6b21a8', // Changed border to purple-700
+              position: 'relative', // To position the separator
+              display: 'flex', // To make the box a flex container
+              flexDirection: 'column', // Stack the content vertically
+              alignItems: 'flex-start', // Align items to the left
+              justifyContent: 'center',
+              textAlign: 'center',
+              padding: '8px',
+            }}
+          >
+            <a href="your-link-1" target="_blank" rel="noopener noreferrer">
+              <div
+                style={{
+                  width: '98px', // Square image width
+                  height: '98px', // Square image height
+                  backgroundColor: '#000', // Black background for the image box
+                  borderRadius: '10px', // Rounded corners for the image box
+                  marginLeft: '8px', // Small margin from the left
+                  border: '4px solid #fff', // White boundary around the image
+                  overflow: 'hidden',
+                }}
+              >
+                <img
+                  src="path-to-your-image1.jpg" // Placeholder for the first image
+                  alt="Image 1"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    borderRadius: '10px',
+                  }}
+                />
+              </div>
+              <p>Recent Post 1</p> {/* Updated text */}
+            </a>
+          </div>
+
+          {/* Separator line between first and second image boxes */}
+          <div
+            style={{
+              width: '4px',
+              backgroundColor: '#ccc',
+              height: '154px', // The height of the image boxes
+              marginTop: '16px', // Adjust the space to center the line
+              marginBottom: '16px', // Adjust the space to center the line
+            }}
+          />
+
+          {/* Second image box */}
+          <div
+            style={{
+              width: '412px',
+              height: '154px',
+              backgroundColor: '#fff', // White background for the box
+              borderRadius: '32px',
+              overflow: 'hidden',
+              border: '4px solid #6b21a8', // Changed border to purple-700
+              position: 'relative', // To position the separator
+              display: 'flex', // To make the box a flex container
+              flexDirection: 'column', // Stack the content vertically
+              alignItems: 'flex-start', // Align items to the left
+              justifyContent: 'center',
+              textAlign: 'center',
+              padding: '8px',
+            }}
+          >
+            <a href="your-link-2" target="_blank" rel="noopener noreferrer">
+              <div
+                style={{
+                  width: '98px', // Square image width
+                  height: '98px', // Square image height
+                  backgroundColor: '#000', // Black background for the image box
+                  borderRadius: '10px', // Rounded corners for the image box
+                  marginLeft: '8px', // Small margin from the left
+                  border: '4px solid #fff', // White boundary around the image
+                  overflow: 'hidden',
+                }}
+              >
+                <img
+                  src="path-to-your-image2.jpg" // Placeholder for the second image
+                  alt="Image 2"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    borderRadius: '10px',
+                  }}
+                />
+              </div>
+              <p>Recent Post 2</p>
+            </a>
+          </div>
+
+          {/* Separator line between second and third image boxes */}
+          <div
+            style={{
+              width: '4px',
+              backgroundColor: '#ccc',
+              height: '154px', // The height of the image boxes
+              marginTop: '16px', // Adjust the space to center the line
+              marginBottom: '16px', // Adjust the space to center the line
+            }}
+          />
+
+          {/* Third image box */}
+          <div
+            style={{
+              width: '412px',
+              height: '154px',
+              backgroundColor: '#fff', // White background for the box
+              borderRadius: '32px',
+              overflow: 'hidden',
+              border: '4px solid #6b21a8', // Changed border to purple-700
+              position: 'relative', // To position the separator
+              display: 'flex', // To make the box a flex container
+              flexDirection: 'column', // Stack the content vertically
+              alignItems: 'flex-start', // Align items to the left
+              justifyContent: 'center',
+              textAlign: 'center',
+              padding: '8px',
+            }}
+          >
+            <a href="your-link-3" target="_blank" rel="noopener noreferrer">
+              <div
+                style={{
+                  width: '98px', // Square image width
+                  height: '98px', // Square image height
+                  backgroundColor: '#000', // Black background for the image box
+                  borderRadius: '10px', // Rounded corners for the image box
+                  marginLeft: '8px', // Small margin from the left
+                  border: '4px solid #fff', // White boundary around the image
+                  overflow: 'hidden',
+                }}
+              >
+                <img
+                  src="path-to-your-image3.jpg" // Placeholder for the third image
+                  alt="Image 3"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    borderRadius: '10px',
+                  }}
+                />
+              </div>
+              <p>Recent Post 3</p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* See More Button with Purple Base to Deep Blue Hover Effect */}
+      <div style={{ marginTop: '12px', display: 'flex', justifyContent: 'flex-end' }}> {/* Reduced marginTop */}
+        <button
+          className="text-[22px] bg-purple-700 dark:bg-red-500 text-white w-[133px] h-[40px] rounded-[20px] hover:bg-[#1D3557] transition-colors"
+          style={{
+            fontSize: '18px',
+            borderRadius: '20px',
+            backgroundColor: '#6b21a8', // Purple background
+            color: 'white',
+            border: 'none',
+            cursor: 'pointer',
+            padding: '8px 18px', // Adjust padding to match the text size
+          }}
+        >
+          See More
+        </button>
+      </div>
+    </section>
+  );
+}
