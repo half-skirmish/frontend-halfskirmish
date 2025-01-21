@@ -7,7 +7,7 @@ export default function Homepage() {
           display: 'grid',
           gridTemplateColumns: 'repeat(12, 1fr)', // 12 columns grid
           gap: '24px', // Gutter between columns
-          margin: '0px auto px', // Added 35px margin-top for the required space between the buttons and image grid
+          margin: '0px auto',
           maxWidth: 'calc(100% - 160px)', // For margin of 80px on each side
         }}
       >
@@ -48,19 +48,21 @@ export default function Homepage() {
           </div>
         </div>
 
-        {/* Additional image boxes on the right side */}
+        {/* Image boxes in the same row */}
         <div
           style={{
             gridColumn: 'span 12',
             display: 'flex',
-            justifyContent: 'space-between',
-            gap: '24px', // 24px gap between the boxes
+            justifyContent: 'space-between', // Evenly space the boxes
+            gap: '24px', // Margin between the boxes
+            alignItems: 'center', // Center items vertically in the row
           }}
         >
           {/* First image box */}
           <div
             style={{
-              width: '412px',
+              flex: '1', // Allow the box to grow to fill space equally
+              minWidth: '0', // Prevent the box from overflowing
               height: '154px',
               backgroundColor: '#fff', // White background for the box
               borderRadius: '32px',
@@ -116,16 +118,17 @@ export default function Homepage() {
           {/* Second image box */}
           <div
             style={{
-              width: '412px',
+              flex: '1',
+              minWidth: '0',
               height: '154px',
               backgroundColor: '#fff', // White background for the box
               borderRadius: '32px',
               overflow: 'hidden',
               border: '4px solid #6b21a8', // Changed border to purple-700
-              position: 'relative', // To position the separator
-              display: 'flex', // To make the box a flex container
-              flexDirection: 'column', // Stack the content vertically
-              alignItems: 'flex-start', // Align items to the left
+              position: 'relative',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'flex-start',
               justifyContent: 'center',
               textAlign: 'center',
               padding: '8px',
@@ -134,12 +137,12 @@ export default function Homepage() {
             <a href="your-link-2" target="_blank" rel="noopener noreferrer">
               <div
                 style={{
-                  width: '98px', // Square image width
-                  height: '98px', // Square image height
-                  backgroundColor: '#000', // Black background for the image box
-                  borderRadius: '10px', // Rounded corners for the image box
-                  marginLeft: '8px', // Small margin from the left
-                  border: '4px solid #fff', // White boundary around the image
+                  width: '98px',
+                  height: '98px',
+                  backgroundColor: '#000',
+                  borderRadius: '10px',
+                  marginLeft: '8px',
+                  border: '4px solid #fff',
                   overflow: 'hidden',
                 }}
               >
@@ -163,25 +166,26 @@ export default function Homepage() {
             style={{
               width: '4px',
               backgroundColor: '#ccc',
-              height: '154px', // The height of the image boxes
-              marginTop: '16px', // Adjust the space to center the line
-              marginBottom: '16px', // Adjust the space to center the line
+              height: '154px',
+              marginTop: '16px',
+              marginBottom: '16px',
             }}
           />
 
           {/* Third image box */}
           <div
             style={{
-              width: '412px',
+              flex: '1',
+              minWidth: '0',
               height: '154px',
-              backgroundColor: '#fff', // White background for the box
+              backgroundColor: '#fff',
               borderRadius: '32px',
               overflow: 'hidden',
               border: '4px solid #6b21a8', // Changed border to purple-700
-              position: 'relative', // To position the separator
-              display: 'flex', // To make the box a flex container
-              flexDirection: 'column', // Stack the content vertically
-              alignItems: 'flex-start', // Align items to the left
+              position: 'relative',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'flex-start',
               justifyContent: 'center',
               textAlign: 'center',
               padding: '8px',
@@ -190,12 +194,12 @@ export default function Homepage() {
             <a href="your-link-3" target="_blank" rel="noopener noreferrer">
               <div
                 style={{
-                  width: '98px', // Square image width
-                  height: '98px', // Square image height
-                  backgroundColor: '#000', // Black background for the image box
-                  borderRadius: '10px', // Rounded corners for the image box
-                  marginLeft: '8px', // Small margin from the left
-                  border: '4px solid #fff', // White boundary around the image
+                  width: '98px',
+                  height: '98px',
+                  backgroundColor: '#000',
+                  borderRadius: '10px',
+                  marginLeft: '8px',
+                  border: '4px solid #fff',
                   overflow: 'hidden',
                 }}
               >
@@ -217,17 +221,17 @@ export default function Homepage() {
       </div>
 
       {/* See More Button with Purple Base to Deep Blue Hover Effect */}
-      <div style={{ marginTop: '12px', display: 'flex', justifyContent: 'flex-end' }}> {/* Reduced marginTop */}
+      <div style={{ marginTop: '12px', display: 'flex', justifyContent: 'flex-end' }}>
         <button
           className="text-[22px] bg-purple-700 dark:bg-red-500 text-white w-[133px] h-[40px] rounded-[20px] hover:bg-[#1D3557] transition-colors"
           style={{
             fontSize: '18px',
             borderRadius: '20px',
-            backgroundColor: '#6b21a8', // Purple background
+            backgroundColor: '#6b21a8',
             color: 'white',
             border: 'none',
             cursor: 'pointer',
-            padding: '8px 18px', // Adjust padding to match the text size
+            padding: '8px 18px',
           }}
         >
           See More
