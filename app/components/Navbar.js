@@ -40,9 +40,9 @@ export const Navbar = () => {
                         <div className="absolute left-0 right-0 mx-auto h-1 w-full rounded-md bg-purple-700 group-hover:opacity-100 transition-opacity opacity-0 mt-[12px]"></div>
                     </button>
 
-                    {/* Portfolio Button */}
+                    {/* Designs Button */}
                     <button className="relative group text-[24px]">
-                        Portfolio
+                        Designs
                         <div className="absolute left-0 right-0 mx-auto h-1 w-full rounded-md bg-purple-700 group-hover:opacity-100 transition-opacity opacity-0 mt-[12px]"></div>
                     </button>
 
@@ -81,8 +81,8 @@ export const Navbar = () => {
                             {/* Blog Button */}
                             <button className="text-[24px] py-2 px-4 w-full text-center">Blog</button>
 
-                            {/* Portfolio Button */}
-                            <button className="text-[24px] py-2 px-4 w-full text-center">Portfolio</button>
+                            {/* Designs Button */}
+                            <button className="text-[24px] py-2 px-4 w-full text-center">Designs</button>
 
                          {/* YouTube Button */}
                             <a
