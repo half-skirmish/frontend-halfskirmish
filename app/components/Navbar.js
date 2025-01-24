@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import { useState } from "react";
@@ -15,7 +15,7 @@ export const Navbar = () => {
     return (
         <div className={`${inter.className} w-screen bg-white text-black`}>
             {/* Navbar */}
-            <div className="flex justify-between items-center px-8">
+            <div className="flex justify-between items-center px-8 relative">
                 {/* Logo Section */}
                 <div className="flex justify-start">
                     <Image
@@ -46,18 +46,18 @@ export const Navbar = () => {
                         <div className="absolute left-0 right-0 mx-auto h-1 w-full rounded-md bg-purple-700 group-hover:opacity-100 transition-opacity opacity-0 mt-[12px]"></div>
                     </button>
 
-                     {/* Youtube Button */}
+                    {/* Youtube Button */}
                     <a 
-                    href="https://www.youtube.com/@halfskirmish/" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="inline-flex"
-                >
-                    <button className="relative group text-[24px]">
-                        Youtube
-                        <div className="absolute left-0 right-0 mx-auto h-1 w-full rounded-md bg-red-700 group-hover:opacity-100 transition-opacity opacity-0 mt-[12px]"></div>
-                    </button>
-                </a>
+                        href="https://www.youtube.com/@halfskirmish/" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="inline-flex"
+                    >
+                        <button className="relative group text-[24px]">
+                            Youtube
+                            <div className="absolute left-0 right-0 mx-auto h-1 w-full rounded-md bg-red-700 group-hover:opacity-100 transition-opacity opacity-0 mt-[12px]"></div>
+                        </button>
+                    </a>
 
                     {/* Let's Talk Button */}
                     <button className="text-[22px] bg-purple-700 text-white w-[133px] h-[40px] rounded-[20px] hover:bg-[#1D3557] transition-colors">
@@ -66,39 +66,61 @@ export const Navbar = () => {
                 </div>
 
                 {/* Mobile Menu Toggle Button */}
-                <div className="md:hidden group">
-                    <button className="text-3xl" onClick={MenuonClick}>
-                        {/* Hamburger Icon */}
-                        <span className="block">☰</span>
+                <div className="md:hidden absolute top-1/2 right-8 transform -translate-y-1/2 z-50">
+                    <button
+                        className={`text-3xl transition-all duration-300 ease-in-out ${
+                            visible ? "rotate-180" : ""
+                        }`}
+                        onClick={MenuonClick}
+                    >
+                        {/* Hamburger Icon with 3 lines */}
+                        <div
+                            className={`block w-6 h-0.5 bg-black my-1 transition-all duration-300 ease-in-out ${
+                                visible ? "rotate-45 translate-y-2" : ""
+                            }`}
+                        ></div>
+                        <div
+                            className={`block w-6 h-0.5 bg-black my-1 transition-all duration-300 ease-in-out ${
+                                visible ? "opacity-0" : ""
+                            }`}
+                        ></div>
+                        <div
+                            className={`block w-6 h-0.5 bg-black my-1 transition-all duration-300 ease-in-out ${
+                                visible ? "rotate-45 translate-y-[-8px]" : ""
+                            }`}
+                        ></div>
                     </button>
+                </div>
 
-                    {/* Mobile Menu */}
-                    {visible && (
-                        <div className="absolute left-0 right-0 top-16 bg-white w-full flex flex-col items-center space-y-4 mt-4">
-                            {/* Home Button */}
-                            <button className="text-[24px] py-2 px-4 w-full text-center">Home</button>
+                {/* Mobile Menu (Slide in from the right) */}
+                <div
+                    className={`fixed top-0 right-0 h-full w-2/3 bg-white transform transition-transform duration-300 ease-in-out z-40 ${
+                        visible ? "translate-x-0" : "translate-x-full"
+                    }`}
+                >
+                    <div className="flex flex-col items-center space-y-4 mt-16">
+                        {/* Home Button */}
+                        <button className="text-[24px] py-2 px-4 w-full text-center">Home</button>
 
-                            {/* Blog Button */}
-                            <button className="text-[24px] py-2 px-4 w-full text-center">Blog</button>
+                        {/* Blog Button */}
+                        <button className="text-[24px] py-2 px-4 w-full text-center">Blog</button>
 
-                            {/* Designs Button */}
-                            <button className="text-[24px] py-2 px-4 w-full text-center">Designs</button>
+                        {/* Designs Button */}
+                        <button className="text-[24px] py-2 px-4 w-full text-center">Designs</button>
 
-                         {/* YouTube Button */}
-                            <a
-                                href="https://www.youtube.com/@halfskirmish/" // YT LINK
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-[24px] py-2 px-4 w-full text-center"
-                            >
-                                YouTube
-                            </a>
+                        {/* YouTube Button */}
+                        <a
+                            href="https://www.youtube.com/@halfskirmish/" // YT LINK
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-[24px] py-2 px-4 w-full text-center"
+                        >
+                            YouTube
+                        </a>
 
-
-                            {/* Let's Talk Button */}
-                            <button className="text-[24px] py-2 px-4 w-full text-center">Let's Talk</button>
-                        </div>
-                    )}
+                        {/* Let's Talk Button */}
+                        <button className="text-[24px] py-2 px-4 w-full text-center">Let's Talk</button>
+                    </div>
                 </div>
             </div>
         </div>
