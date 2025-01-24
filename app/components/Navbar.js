@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import { useState } from "react";
+import Link from "next/link"; // Importing Link for navigation
 
 // Load the Inter font with Bold weight
 const inter = Inter({ subsets: ["latin"], weight: ["700"] });
@@ -17,7 +18,7 @@ export const Navbar = () => {
             {/* Navbar */}
             <div className="flex justify-between items-center px-8 relative">
                 {/* Logo Section */}
-                <div className="flex justify-start">
+                <div className="flex justify-start items-center">
                     <Image
                         src="/logolight.png"
                         width={300}
@@ -27,30 +28,36 @@ export const Navbar = () => {
                 </div>
 
                 {/* Desktop Menu */}
-                <div className="hidden md:flex justify-end text-2xl gap-x-8">
+                <div className="hidden md:flex justify-end items-center text-2xl gap-x-8">
                     {/* Home Button */}
-                    <button className="relative group text-[24px]">
-                        Home
-                        <div className="absolute left-0 right-0 mx-auto h-1 w-full rounded-md bg-purple-700 group-hover:opacity-100 transition-opacity opacity-0 mt-[12px]"></div>
-                    </button>
+                    <Link href="/">
+                        <button className="relative group text-[24px]">
+                            Home
+                            <div className="absolute left-0 right-0 mx-auto h-1 w-full rounded-md bg-purple-700 group-hover:opacity-100 transition-opacity opacity-0 mt-[12px]"></div>
+                        </button>
+                    </Link>
 
                     {/* Blog Button */}
-                    <button className="relative group text-[24px]">
-                        Blog
-                        <div className="absolute left-0 right-0 mx-auto h-1 w-full rounded-md bg-purple-700 group-hover:opacity-100 transition-opacity opacity-0 mt-[12px]"></div>
-                    </button>
+                    <Link href="/blog">
+                        <button className="relative group text-[24px]">
+                            Blog
+                            <div className="absolute left-0 right-0 mx-auto h-1 w-full rounded-md bg-purple-700 group-hover:opacity-100 transition-opacity opacity-0 mt-[12px]"></div>
+                        </button>
+                    </Link>
 
                     {/* Designs Button */}
-                    <button className="relative group text-[24px]">
-                        Designs
-                        <div className="absolute left-0 right-0 mx-auto h-1 w-full rounded-md bg-purple-700 group-hover:opacity-100 transition-opacity opacity-0 mt-[12px]"></div>
-                    </button>
+                    <Link href="/designs">
+                        <button className="relative group text-[24px]">
+                            Designs
+                            <div className="absolute left-0 right-0 mx-auto h-1 w-full rounded-md bg-purple-700 group-hover:opacity-100 transition-opacity opacity-0 mt-[12px]"></div>
+                        </button>
+                    </Link>
 
                     {/* Youtube Button */}
-                    <a 
-                        href="https://www.youtube.com/@halfskirmish/" 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
+                    <a
+                        href="https://www.youtube.com/@halfskirmish/"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="inline-flex"
                     >
                         <button className="relative group text-[24px]">
@@ -100,13 +107,19 @@ export const Navbar = () => {
                 >
                     <div className="flex flex-col items-center space-y-4 mt-16">
                         {/* Home Button */}
-                        <button className="text-[24px] py-2 px-4 w-full text-center">Home</button>
+                        <Link href="/">
+                            <button className="text-[24px] py-2 px-4 w-full text-center">Home</button>
+                        </Link>
 
                         {/* Blog Button */}
-                        <button className="text-[24px] py-2 px-4 w-full text-center">Blog</button>
+                        <Link href="/blog">
+                            <button className="text-[24px] py-2 px-4 w-full text-center">Blog</button>
+                        </Link>
 
                         {/* Designs Button */}
-                        <button className="text-[24px] py-2 px-4 w-full text-center">Designs</button>
+                        <Link href="/designs">
+                            <button className="text-[24px] py-2 px-4 w-full text-center">Designs</button>
+                        </Link>
 
                         {/* YouTube Button */}
                         <a
@@ -126,3 +139,4 @@ export const Navbar = () => {
         </div>
     );
 };
+
