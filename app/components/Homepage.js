@@ -220,6 +220,8 @@ export default function Homepage() {
         </div>
       </div>
 
+      
+
       {/* See More Button with Purple Base to Deep Blue Hover Effect */}
       <div style={{ marginTop: '12px', display: 'flex', justifyContent: 'flex-end' }}>
         <button

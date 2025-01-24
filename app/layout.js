@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Half Skirmish",
+  title: "Half Skirmish's Portfolio",
   description: "Committed to the grind, because dreams don't work unless you do.",
 };
 
