@@ -3,7 +3,7 @@
 import { Inter } from 'next/font/google';
 
 const inter = Inter({
-  weight: '700', // Bold Inter font
+  weight: '700', // Regular Inter font
   subsets: ['latin'],
 });
 
@@ -67,6 +67,7 @@ export default function Homepage() {
               style={{
                 textDecoration: 'none',
                 color: 'inherit',
+                pointerEvents: 'none', // Disable the pointer (no clickable symbol)
               }}
             >
               <div
@@ -77,17 +78,6 @@ export default function Homepage() {
                   borderRadius: '8px',
                   overflow: 'hidden',
                   margin: '0 auto',
-                  transition: 'transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease',
-                }}
-                onMouseOver={(e) => {
-                  e.target.style.transform = 'scale(1.1)';
-                  e.target.style.boxShadow = '0 0 15px rgba(0, 0, 0, 0.3)';
-                  e.target.style.border = '4px solid #1D3557'; // Add border on hover
-                }}
-                onMouseOut={(e) => {
-                  e.target.style.transform = 'scale(1)';
-                  e.target.style.boxShadow = 'none';
-                  e.target.style.border = 'none'; // Remove border on mouse out
                 }}
               >
                 <img
@@ -105,16 +95,9 @@ export default function Homepage() {
                   marginTop: '13px',
                   fontSize: '16px',
                   maxWidth: '180px',
-                  whiteSpace: 'nowrap',
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis',
-                  display: '-webkit-box',
-                  WebkitBoxOrient: 'vertical',
-                  WebkitLineClamp: '2',
                   textAlign: 'center',
                   margin: '0 auto',
-                  fontFamily: inter.style.fontFamily, // Apply bold Inter font here
-                  fontWeight: '700', // Ensures the text is bold
+                  fontFamily: inter.style.fontFamily, // Apply Inter regular font here
                 }}
               >
                 {title}
@@ -137,8 +120,7 @@ export default function Homepage() {
             cursor: 'pointer',
             padding: '8px 18px',
             transition: 'background-color 0.3s ease',
-            fontFamily: inter.style.fontFamily, // Apply bold Inter font here
-            fontWeight: '700', // Ensures the button text is bold
+            fontFamily: inter.style.fontFamily, // Apply Inter regular font here
           }}
           onMouseOver={(e) => {
             e.target.style.backgroundColor = '#003366'; // Deep blue on hover
