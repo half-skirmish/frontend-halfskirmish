@@ -9,7 +9,7 @@ const inter = Inter({
 
 export default function Homepage() {
   return (
-    <section style={{ backgroundColor: '#f8f8f8', padding: '0', margin: '0' }}>
+    <section style={{ backgroundColor: '#ffffff', padding: '0', margin: '0' }}>
       {/* Permanent Introduction Image Section */}
       <div
         style={{
