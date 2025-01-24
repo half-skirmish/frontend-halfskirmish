@@ -16,7 +16,7 @@ export default function Homepage() {
           style={{
             gridColumn: 'span 12', // This will make the image span the full 12 columns (left side)
             padding: '10px',
-            display: 'flex',
+            display: 'cover',
             justifyContent: 'center', // Center the main image
             alignItems: 'center',
           }}

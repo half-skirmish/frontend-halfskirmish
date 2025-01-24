@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Half Skirmish's Portfolio",
-  description: "Committed to the grind, because dreams don't work unless you do.",
+  description: "1% Better Every Damn Day!",
 };
 
 export default function RootLayout({ children }) {
