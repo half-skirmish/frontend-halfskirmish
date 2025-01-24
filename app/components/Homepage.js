@@ -8,6 +8,12 @@ const inter = Inter({
 });
 
 export default function Homepage() {
+  // Function to handle button click
+  const handleClick = (index) => {
+    // Redirect to the specific link for the image box
+    window.location.href = `/post/${index + 1}`;
+  };
+
   return (
     <section style={{ backgroundColor: '#ffffff', padding: '0', margin: '0' }}>
       {/* Permanent Introduction Image Section */}
@@ -60,14 +66,20 @@ export default function Homepage() {
               flex: '1',
               minWidth: '0',
               textAlign: 'center',
+              position: 'relative', // Added relative positioning
             }}
           >
-            <a
-              href={`/post/${index + 1}`} // Link to the specific post
+            <button
+              onClick={() => handleClick(index)} // Trigger the click event for each image
               style={{
                 textDecoration: 'none',
                 color: 'inherit',
-                pointerEvents: 'none', // Disable the pointer (no clickable symbol)
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+                display: 'block', // Ensure the button takes up the full width
+                textAlign: 'center',
+                margin: '0 auto',
               }}
             >
               <div
@@ -102,7 +114,20 @@ export default function Homepage() {
               >
                 {title}
               </p>
-            </a>
+            </button>
+
+            {/* Vertical Separator (using a pseudo-element) */}
+            {index !== 3 && ( // Don't add separator after the last box
+              <div
+                style={{
+                  position: 'absolute',
+                  top: 32,
+                  right: '-8px', // Adjust position if necessary
+                  height: '60%',
+                  borderLeft: '2px solid #000000', // Purple separator
+                }}
+              />
+            )}
           </div>
         ))}
       </div>

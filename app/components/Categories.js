@@ -63,7 +63,7 @@ export default function Categories() {
         }}
       >
         {/* First Rounded Rectangle */}
-        <div
+        <a href="/category/1" // Link to the first category page
           style={{
             width: "440px",
             height: "440px",
@@ -71,6 +71,7 @@ export default function Categories() {
             overflow: "hidden", // Ensure contents don't spill out
             transition: "box-shadow 0.3s ease", // Smooth transition for the box-shadow on hover
             position: "relative", // For proper positioning of the Image
+            display: "block", // Ensures the anchor tag covers the box area
           }}
           onMouseEnter={(e) =>
             (e.currentTarget.style.boxShadow = "0 0 0 4px #1D3557")
@@ -83,7 +84,7 @@ export default function Categories() {
             layout="fill" // Ensures the image fills the div
             objectFit="cover" // Ensures the image covers the div
           />
-        </div>
+        </a>
 
         {/* Circular Separator */}
         <div
@@ -96,7 +97,7 @@ export default function Categories() {
         />
 
         {/* Second Rounded Rectangle with Image */}
-        <div
+        <a href="/category/2" // Link to the second category page
           style={{
             width: "440px",
             height: "440px",
@@ -104,6 +105,7 @@ export default function Categories() {
             overflow: "hidden", // Ensure contents don't spill out
             transition: "box-shadow 0.3s ease", // Smooth transition for the box-shadow on hover
             position: "relative", // For proper positioning of the Image
+            display: "block", // Ensures the anchor tag covers the box area
           }}
           onMouseEnter={(e) =>
             (e.currentTarget.style.boxShadow = "0 0 0 4px #1D3557")
@@ -116,7 +118,7 @@ export default function Categories() {
             layout="fill" // Ensures the image fills the div
             objectFit="cover" // Ensures the image covers the div
           />
-        </div>
+        </a>
       </div>
     </div>
   );
