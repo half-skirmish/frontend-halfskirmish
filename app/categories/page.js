@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import Footer from "../components/Footer"; // Adjust the import path
 
 export default function Categories() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -168,7 +167,30 @@ export default function Categories() {
         </div>
       </div>
 
-      <Footer /> {/* Add Footer here */}
+      <style jsx>{`
+        @media (max-width: 768px) {
+          .separator {
+            width: 80%;
+            height: 5px;
+            border-radius: 0;
+            margin: 20px auto;
+          }
+
+          div {
+            flex-direction: column;
+          }
+
+          div > div {
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+          }
+
+          h1 {
+            font-size: 48px;
+          }
+        }
+      `}</style>
     </div>
   );
 }
