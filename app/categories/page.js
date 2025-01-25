@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+
 export default function Categories() {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
@@ -192,5 +193,6 @@ export default function Categories() {
         }
       `}</style>
     </div>
+    
   );
 }
