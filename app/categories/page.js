@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link"; // Import Link for navigation
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Categories() {
@@ -19,152 +19,163 @@ export default function Categories() {
     <div
       style={{
         display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
         flexDirection: "column",
         height: "100vh",
         backgroundColor: isDarkMode ? "#121212" : "white",
       }}
     >
-      {/* Back Button */}
-      <Link href="/">
-        <div
-          style={{
-            position: "absolute",
-            top: "10%",
-            left: "5%",
-            backgroundColor: isDarkMode ? "#1abc9c" : "#6b21a8", // Teal in dark mode, Purple in light mode
-            borderRadius: "50%",
-            width: "40px",
-            height: "40px",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            cursor: "pointer",
-          }}
-        >
-          <span
-            style={{
-              display: "inline-block",
-              width: "12px",
-              height: "12px",
-              borderTop: `2px solid ${isDarkMode ? "black" : "white"}`, // Arrow color: black for dark mode, white for light mode
-              borderLeft: `2px solid ${isDarkMode ? "black" : "white"}`, // Arrow color: black for dark mode, white for light mode
-              transform: "rotate(-45deg)",
-              marginLeft: "2px",
-            }}
-          ></span>
-        </div>
-      </Link>
-
-      {/* Heading Box with rounded rectangle stroke */}
+      {/* White Bar with Logo */}
       <div
         style={{
-          fontFamily: "'Inter', sans-serif", // Added fallback font for safety
-          fontWeight: "bold",
-          backgroundColor: isDarkMode ? "#121212" : "white", // Lighter in dark mode
-          borderRadius: "30px", // Rounded corners for the rectangle
-          padding: "20px 40px",
-          marginBottom: "40px",
-          display: "inline-block",
-          boxSizing: "border-box", // Ensures padding is accounted for in the size
-          border: `5px solid ${isDarkMode ? "#1abc9c" : "#6b21a8"}`, // Rounded rectangle stroke color
+          backgroundColor: "white",
+          height: "80px",
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
         }}
       >
-        <h1
-          style={{
-            fontFamily: "Inter",
-            fontWeight: "bold",
-            fontSize: "64px",
-            color: isDarkMode ? "white" : "black",
-            margin: 0,
-            paddingBottom: "10px", // Adds space between the text and the line
-          }}
-        >
-          CATEGORIES
-        </h1>
+        <Link href="/" passHref>
+          <Image
+            src="/logowhite.png" // Replace with the path to your logo image
+            alt="Logo"
+            width={150} // Half the width of the original logo for better responsiveness
+            height={10} // Scaled height to maintain the aspect ratio
+            style={{ cursor: "pointer" }}
+          />
+        </Link>
       </div>
 
-      {/* Box container */}
+      {/* Content */}
       <div
         style={{
           display: "flex",
-          justifyContent: "space-between", // Distribute space equally between the boxes and separator
+          justifyContent: "center",
           alignItems: "center",
-          width: "100%", // Ensures the container takes up full width
-          maxWidth: "1200px", // Optional: Set max width if needed
-          padding: "0 20px", // Optional: Adds horizontal padding to container
+          flexDirection: "column",
+          flexGrow: 1,
         }}
       >
-        {/* Blog Category Box */}
-        <Link href="/blog" passHref>
-          <div
-            style={{
-              width: "440px",
-              height: "440px",
-              borderRadius: "45px",
-              overflow: "hidden", // Ensure contents don't spill out
-              transition: "box-shadow 0.3s ease", // Smooth transition for the box-shadow on hover
-              position: "relative", // For proper positioning of the Image
-              display: "block", // Ensures the anchor tag covers the box area
-            }}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.boxShadow = isDarkMode
-                ? "0 0 0 4px white"
-                : "0 0 0 4px #1D3557")
-            } // Hover effect
-            onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "none")}
-          >
-            <Image
-              src="/blog-image.jpg" // Replace with your actual blog image
-              alt="Blog Category"
-              layout="fill" // Ensures the image fills the div
-              objectFit="cover" // Ensures the image covers the div
-            />
-          </div>
-        </Link>
-
-        {/* Circular Separator */}
+        {/* Heading Box with Rounded Rectangle Stroke */}
         <div
           style={{
-            width: "40px",
-            height: "40px",
-            backgroundColor: isDarkMode ? "#1abc9c" : "#6b21a8", // Teal in dark mode, Purple in light mode
-            borderRadius: "80%",
+            fontFamily: "'Inter', sans-serif",
+            fontWeight: "bold",
+            backgroundColor: isDarkMode ? "#121212" : "white",
+            borderRadius: "30px",
+            padding: "20px 40px",
+            marginBottom: "40px",
+            display: "inline-block",
+            boxSizing: "border-box",
+            border: `5px solid ${isDarkMode ? "#1abc9c" : "#6b21a8"}`,
           }}
-        />
-
-        {/* Designs Category Box */}
-        <Link href="/designs" passHref>
-          <div
+        >
+          <h1
             style={{
-              width: "440px",
-              height: "440px",
-              borderRadius: "45px",
-              overflow: "hidden", // Ensure contents don't spill out
-              transition: "box-shadow 0.3s ease", // Smooth transition for the box-shadow on hover
-              position: "relative", // For proper positioning of the Image
-              display: "block", // Ensures the anchor tag covers the box area
+              fontFamily: "Inter",
+              fontWeight: "bold",
+              fontSize: "64px",
+              color: isDarkMode ? "white" : "black",
+              margin: 0,
+              paddingBottom: "10px",
             }}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.boxShadow = isDarkMode
-                ? "0 0 0 4px white"
-                : "0 0 0 4px #1D3557")
-            } // Hover effect
-            onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "none")}
           >
-            <Image
-              src="/designs-image.jpg" // Replace with your actual designs image
-              alt="Designs Category"
-              layout="fill" // Ensures the image fills the div
-              objectFit="cover" // Ensures the image covers the div
-            />
-          </div>
-        </Link>
+            CATEGORIES
+          </h1>
+        </div>
+
+        {/* Box Container */}
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            width: "100%",
+            maxWidth: "1200px",
+            padding: "0 20px",
+          }}
+        >
+          {/* Blog Category Box */}
+          <Link href="/blog" passHref>
+            <div
+              style={{
+                width: "440px",
+                height: "440px",
+                borderRadius: "45px",
+                overflow: "hidden",
+                transition: "box-shadow 0.3s ease",
+                position: "relative",
+                display: "block",
+              }}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.boxShadow = isDarkMode
+                  ? "0 0 0 4px white"
+                  : "0 0 0 4px #1D3557")
+              }
+              onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "none")}
+            >
+              <Image
+                src="/red.jpg"
+                alt="Blog Category"
+                layout="fill"
+                objectFit="cover"
+                style={{ borderRadius: "45px" }} // Ensures the image has rounded corners
+              />
+            </div>
+          </Link>
+
+          {/* Teal/Purple Separator */}
+          <div
+            className="separator"
+            style={{
+              width: "40px",
+              height: "40px",
+              backgroundColor: isDarkMode ? "#1abc9c" : "#6b21a8",
+              borderRadius: "80%",
+            }}
+          />
+
+          {/* Designs Category Box */}
+          <Link href="/designs" passHref>
+            <div
+              style={{
+                width: "440px",
+                height: "440px",
+                borderRadius: "45px",
+                overflow: "hidden",
+                transition: "box-shadow 0.3s ease",
+                position: "relative",
+                display: "block",
+              }}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.boxShadow = isDarkMode
+                  ? "0 0 0 4px white"
+                  : "0 0 0 4px #1D3557")
+              }
+              onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "none")}
+            >
+              <Image
+                src="/red.jpg"
+                alt="Designs Category"
+                layout="fill"
+                objectFit="cover"
+                style={{ borderRadius: "45px" }} // Ensures the image has rounded corners
+              />
+            </div>
+          </Link>
+        </div>
       </div>
 
       <style jsx>{`
         @media (max-width: 768px) {
+          .separator {
+            width: 80%;
+            height: 5px;
+            border-radius: 0;
+            margin: 20px auto;
+          }
+
           div {
             flex-direction: column;
           }
