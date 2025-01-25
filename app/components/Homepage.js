@@ -1,6 +1,7 @@
 'use client';
 
 import { Inter } from 'next/font/google';
+import Image from 'next/image';
 import Link from 'next/link';
 import Footer from '../components/Footer'; // Import Footer component
 
@@ -15,28 +16,42 @@ export default function Homepage() {
   };
 
   return (
-    <section style={{ backgroundColor: '#ffffff', padding: '0', margin: '0' }}>
+    <section className='bg-grey-500 flex flex-col items-center justify-center' >
       {/* Introduction Image */}
       <div
-        style={{
-          width: '100vw',
-          height: 'auto',
-          overflow: 'hidden',
-        }}
+        
       >
         <img
           src="/stock.jpg"
           alt="Introduction Image"
-          style={{
-            width: '100%',
-            height: 'auto',
-            objectFit: 'cover',
-          }}
+          
         />
       </div>
 
       {/* Image Boxes Section */}
-      <div className="image-boxes">
+      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5      mt-16 w-screen'> 
+      {['Title 1', 'Title 2', 'Title 3', 'Title 4', 'Title 5'].map((title, index) => (
+          <div key={index} className="flex items-center justify-center">
+            <button
+              onClick={() => handleClick(index)}
+             
+            >
+              <div className="w-48 h-48">
+                <Image className='rounded-2xl'
+                alt='Image'
+                  src="/stock.jpg"
+                  width={320} height={320}
+                  
+                  
+                />
+              </div>
+              <p className="image-title">{title}</p>
+            </button>
+          </div>
+        ))}
+      </div>
+
+      {/* <div className="image-boxes flex items-center justify-center">
         {['Title 1', 'Title 2', 'Title 3', 'Title 4', 'Title 5'].map((title, index) => (
           <div key={index} className="image-box">
             <button
@@ -65,7 +80,7 @@ export default function Homepage() {
             </button>
           </div>
         ))}
-      </div>
+      </div> */}
 
       {/* See More Button */}
       <div className="see-more-button">
@@ -83,7 +98,7 @@ export default function Homepage() {
       />
 
       {/* Footer */}
-      <Footer pageBgColor="#ffffff" />
+      <Footer className= 'w-screen' />
 
       {/* Media Query Styles */}
       <style jsx>{`
