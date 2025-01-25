@@ -60,6 +60,8 @@ export default function Categories() {
       {/* Heading Box with rounded rectangle stroke */}
       <div
         style={{
+          fontFamily: "'Inter', sans-serif", // Added fallback font for safety
+          fontWeight: "bold",
           backgroundColor: isDarkMode ? "#121212" : "white", // Lighter in dark mode
           borderRadius: "30px", // Rounded corners for the rectangle
           padding: "20px 40px",
