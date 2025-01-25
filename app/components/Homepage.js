@@ -2,6 +2,7 @@
 
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
+import Footer from '../components/Footer'; // Import Footer component
 
 const inter = Inter({
   weight: '700',
@@ -36,7 +37,7 @@ export default function Homepage() {
 
       {/* Image Boxes Section */}
       <div className="image-boxes">
-        {['Title 1', 'Title 2', 'Title 3', 'Title 4'].map((title, index) => (
+        {['Title 1', 'Title 2', 'Title 3', 'Title 4', 'Title 5'].map((title, index) => (
           <div key={index} className="image-box">
             <button
               onClick={() => handleClick(index)}
@@ -73,6 +74,17 @@ export default function Homepage() {
         </Link>
       </div>
 
+      {/* Spacer before Footer */}
+      <div
+        style={{
+          height: '60px', // Adjust the height of the spacing
+          backgroundColor: '#ffffff', // Match the page background color
+        }}
+      />
+
+      {/* Footer */}
+      <Footer pageBgColor="#ffffff" />
+
       {/* Media Query Styles */}
       <style jsx>{`
         .image-boxes {
@@ -95,7 +107,7 @@ export default function Homepage() {
         }
 
         .image-wrapper {
-          width: 180px;
+          width: 240px;
           height: 180px;
           background-color: #000;
           border-radius: 8px;
@@ -143,7 +155,7 @@ export default function Homepage() {
 
           .image-box {
             flex: 0 0 auto;
-            max-width: 180px;
+            max-width: 240px;
           }
         }
       `}</style>

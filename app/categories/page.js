@@ -1,9 +1,20 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";  // Import Link for navigation
+import Link from "next/link"; // Import Link for navigation
+import { useEffect, useState } from "react";
 
 export default function Categories() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    setIsDarkMode(mediaQuery.matches);
+    const handleChange = (e) => setIsDarkMode(e.matches);
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  }, []);
+
   return (
     <div
       style={{
@@ -12,17 +23,50 @@ export default function Categories() {
         alignItems: "center",
         flexDirection: "column",
         height: "100vh",
+        backgroundColor: isDarkMode ? "#121212" : "white",
       }}
     >
-      {/* Heading Box with white fill and purple gradient outer stroke */}
+      {/* Back Button */}
+      <Link href="/">
+        <div
+          style={{
+            position: "absolute",
+            top: "10%",
+            left: "5%",
+            backgroundColor: isDarkMode ? "#1abc9c" : "#6b21a8", // Teal in dark mode, Purple in light mode
+            borderRadius: "50%",
+            width: "40px",
+            height: "40px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            cursor: "pointer",
+          }}
+        >
+          <span
+            style={{
+              display: "inline-block",
+              width: "12px",
+              height: "12px",
+              borderTop: `2px solid ${isDarkMode ? "black" : "white"}`, // Arrow color: black for dark mode, white for light mode
+              borderLeft: `2px solid ${isDarkMode ? "black" : "white"}`, // Arrow color: black for dark mode, white for light mode
+              transform: "rotate(-45deg)",
+              marginLeft: "2px",
+            }}
+          ></span>
+        </div>
+      </Link>
+
+      {/* Heading Box with rounded rectangle stroke */}
       <div
         style={{
-          backgroundColor: "white",
+          backgroundColor: isDarkMode ? "#121212" : "white", // Lighter in dark mode
           borderRadius: "30px", // Rounded corners for the rectangle
           padding: "20px 40px",
           marginBottom: "40px",
           display: "inline-block",
           boxSizing: "border-box", // Ensures padding is accounted for in the size
+          border: `5px solid ${isDarkMode ? "#1abc9c" : "#6b21a8"}`, // Rounded rectangle stroke color
         }}
       >
         <h1
@@ -30,25 +74,12 @@ export default function Categories() {
             fontFamily: "Inter",
             fontWeight: "bold",
             fontSize: "64px",
-            color: "black",
+            color: isDarkMode ? "white" : "black",
             margin: 0,
-            position: "relative", // To position the pseudo-element
             paddingBottom: "10px", // Adds space between the text and the line
           }}
         >
           CATEGORIES
-          <span
-            style={{
-              position: "absolute",
-              left: "50%",
-              bottom: "0",
-              transform: "translateX(-50%)", // Centers the line
-              width: "60%", // Adjusts width of the line (can be customized)
-              height: "4px",
-              background: "#8E31B5",
-              borderRadius: "50px", // Rounds the ends of the line
-            }}
-          ></span>
         </h1>
       </div>
 
@@ -76,9 +107,11 @@ export default function Categories() {
               display: "block", // Ensures the anchor tag covers the box area
             }}
             onMouseEnter={(e) =>
-              (e.currentTarget.style.boxShadow = "0 0 0 4px #1D3557")
-            } // Purple stroke on hover
-            onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "none")} // Remove box-shadow when not hovered
+              (e.currentTarget.style.boxShadow = isDarkMode
+                ? "0 0 0 4px white"
+                : "0 0 0 4px #1D3557")
+            } // Hover effect
+            onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "none")}
           >
             <Image
               src="/blog-image.jpg" // Replace with your actual blog image
@@ -94,12 +127,12 @@ export default function Categories() {
           style={{
             width: "40px",
             height: "40px",
-            backgroundColor: "#6b21a8", // Purple 700 color
+            backgroundColor: isDarkMode ? "#1abc9c" : "#6b21a8", // Teal in dark mode, Purple in light mode
             borderRadius: "80%",
           }}
         />
 
-        {/* Designs Category Box (replacing Portfolio) */}
+        {/* Designs Category Box */}
         <Link href="/designs" passHref>
           <div
             style={{
@@ -112,9 +145,11 @@ export default function Categories() {
               display: "block", // Ensures the anchor tag covers the box area
             }}
             onMouseEnter={(e) =>
-              (e.currentTarget.style.boxShadow = "0 0 0 4px #1D3557")
-            } // Purple stroke on hover
-            onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "none")} // Remove box-shadow when not hovered
+              (e.currentTarget.style.boxShadow = isDarkMode
+                ? "0 0 0 4px white"
+                : "0 0 0 4px #1D3557")
+            } // Hover effect
+            onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "none")}
           >
             <Image
               src="/designs-image.jpg" // Replace with your actual designs image
@@ -125,6 +160,24 @@ export default function Categories() {
           </div>
         </Link>
       </div>
+
+      <style jsx>{`
+        @media (max-width: 768px) {
+          div {
+            flex-direction: column;
+          }
+
+          div > div {
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+          }
+
+          h1 {
+            font-size: 48px;
+          }
+        }
+      `}</style>
     </div>
   );
 }
