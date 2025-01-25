@@ -97,7 +97,15 @@ export default function Categories() {
         {/* Blog Category Box */}
         <Link href="/blog" passHref>
           <div
-            
+            style={{
+              width: "440px",
+              height: "440px",
+              borderRadius: "45px",
+              overflow: "hidden", // Ensure contents don't spill out
+              transition: "box-shadow 0.3s ease", // Smooth transition for the box-shadow on hover
+              position: "relative", // For proper positioning of the Image
+              display: "block", // Ensures the anchor tag covers the box area
+            }}
             onMouseEnter={(e) =>
               (e.currentTarget.style.boxShadow = isDarkMode
                 ? "0 0 0 4px white"
@@ -106,7 +114,7 @@ export default function Categories() {
             onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "none")}
           >
             <Image
-              src="/stock2.jpg" // Replace with your actual blog image
+              src="/blog-image.jpg" // Replace with your actual blog image
               alt="Blog Category"
               layout="fill" // Ensures the image fills the div
               objectFit="cover" // Ensures the image covers the div
