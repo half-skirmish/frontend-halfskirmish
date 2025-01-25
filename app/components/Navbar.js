@@ -20,9 +20,9 @@ export const Navbar = () => {
                 {/* Logo Section */}
                 <div className="flex justify-start items-center">
                     <Image
-                        src="/logolight.png"
-                        width={300}
-                        height={300}
+                        src="/logowhite.jpg"
+                        width={200}
+                        height={200}
                         alt="Half Skirmish"
                     />
                 </div>
