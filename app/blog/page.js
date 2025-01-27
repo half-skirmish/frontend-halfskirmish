@@ -20,7 +20,7 @@ export default function Blog() {
       {/* First Post */}
       <div className="flex justify-start items-center w-full mb-16 pl-16">
         {/* Image Box */}
-        <a href="/post1" className="w-80 h-48 rounded-2xl overflow-hidden hover:shadow-lg hover:scale-105 transition-transform duration-300">
+        <a href="/blog/post1" className="w-80 h-48 rounded-2xl overflow-hidden hover:shadow-lg hover:scale-105 transition-transform duration-300">
           <Image
             className="rounded-2xl"
             alt="Blog Post Image"

@@ -1,0 +1,106 @@
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+
+export default function BlogPost() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    setIsDarkMode(mediaQuery.matches);
+    const handleChange = (e) => setIsDarkMode(e.matches);
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  }, []);
+
+  return (
+    <div
+      className={`flex flex-col min-h-screen ${
+        isDarkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"
+      }`}
+    >
+      {/* Navbar */}
+      <header className="bg-white shadow-md">
+        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+          <Link href="/" passHref>
+            <Image
+              src="/logowhite.png" // Replace with your logo path
+              alt="Logo"
+              width={120}
+              height={30}
+              className="cursor-pointer"
+            />
+          </Link>
+        </div>
+      </header>
+
+      {/* Blog Content */}
+      <main className="flex-grow container mx-auto px-4 py-8">
+        <div className="max-w-4xl mx-auto">
+          {/* Blog Header */}
+          <h1 className="text-5xl font-bold mb-6 text-center leading-tight tracking-tight font-inter">
+            Welcome to halfskirmish.com
+          </h1>
+
+          {/* Author Details */}
+          <div className="flex items-center mb-8">
+            <Image
+              src="/naman.png" // Replace with author's image
+              alt="Author Image"
+              width={50}
+              height={50}
+              className="rounded-full"
+            />
+            <div className="ml-4">
+              <p className="font-semibold text-lg">Naman Chaturvedi</p>
+              <p className="text-sm text-gray-500">
+                January 27, 2025 · Category: Web Development
+              </p>
+            </div>
+          </div>
+
+          {/* Featured Image */}
+          <div className="relative w-full h-80 mb-8 rounded-xl overflow-hidden shadow-xl">
+            <Image
+              src="/meme.png" // Replace with the featured image path
+              alt="Featured Image"
+              layout="fill"
+              objectFit="cover"
+              className="rounded-xl"
+            />
+          </div>
+
+          {/* Blog Content */}
+          <div className="prose prose-lg max-w-none mb-8 font-roboto">
+            <p>THE GRIND WON'T STOP!</p>
+            <p>The Website's main structure's ready. We winning!</p>
+            <p>Stay tuned!</p>
+          </div>
+
+          {/* Tags */}
+          <div className="mb-8">
+            <strong>Tags:</strong>
+            <span className="ml-2 text-purple-600">Design</span>,
+            <span className="ml-2 text-teal-600">Gaming</span>,
+            <span className="ml-2 text-blue-600">Workout</span>
+            <span className="ml-2 text-purple-700">Half Skirmish.</span>
+          </div>
+
+          {/* Social Media Previews */}
+          <div className="flex justify-center space-x-4">
+            {/* Add Social Media Icons here if needed */}
+          </div>
+        </div>
+      </main>
+
+      {/* Footer */}
+      <footer className="bg-black py-6 mt-12">
+        <div className="container mx-auto text-center text-sm text-white">
+          © 2025 Half Skirmish. All rights reserved.
+        </div>
+      </footer>
+    </div>
+  );
+}
