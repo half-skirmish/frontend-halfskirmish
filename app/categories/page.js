@@ -117,7 +117,7 @@ export default function Categories() {
               onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "none")}
             >
               <Image
-                src="/red.jpg"
+                src="/blogsection.jpg"
                 alt="Blog Category"
                 layout="fill"
                 objectFit="cover"
