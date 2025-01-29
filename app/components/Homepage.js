@@ -17,6 +17,7 @@ export default function Homepage() {
 
   return (
     <section className='bg-grey-500 flex flex-col items-center justify-center' >
+      <div className="animate-slide-up"></div>
       {/* Introduction Image */}
       <div
         

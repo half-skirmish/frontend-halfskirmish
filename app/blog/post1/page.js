@@ -23,7 +23,7 @@ export default function BlogPost() {
     >
       {/* Navbar */}
       <header className="bg-white shadow-md">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+        <div className="container mx-auto px-4 py-4 flex items-center justify-center">
           <Link href="/" passHref>
             <Image
               src="/logowhite.png" // Replace with your logo path
