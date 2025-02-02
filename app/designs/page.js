@@ -11,10 +11,13 @@ export default function Designs() {
       <Navbar />
 
       {/* Introduction Image */}
-      <div className="mb-8">
-        <img
-          src="/designs.jpg"
+      <div className="relative w-full h-64 mb-8">
+        <Image
+          src="https://drive.google.com/uc?id=13sUGQwugqrwFaQod8x4RftJvrpPC_TgS"
           alt="Designs Image"
+          fill
+          style={{ objectFit: 'cover' }}
+          sizes="100vw"
         />
       </div>
 

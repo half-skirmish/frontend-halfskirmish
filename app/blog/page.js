@@ -9,13 +9,17 @@ export default function Blog() {
       {/* Navbar */}
       <Navbar />
 
-      {/* Introduction Image */}
-      <div className="mb-8">
-        <img
-          src="/writings.jpg"
-          alt="Blog Image"
-        />
-      </div>
+
+{/* Introduction Image */}
+<div className="relative w-full h-64 mb-8">
+  <Image
+    src="https://drive.google.com/uc?id=140KFz2bbICEYIn0lQaZHZU2zm2ilse-Y"
+    alt="Blog Image"
+    fill
+    style={{ objectFit: 'cover' }}
+    sizes="100vw"
+  />
+</div>
 
       {/* First Post */}
       <div className="flex justify-start items-center w-full mb-16 pl-16">
@@ -24,7 +28,7 @@ export default function Blog() {
           <Image
             className="rounded-2xl"
             alt="Blog Post Image"
-            src="/red.jpg"
+            src="https://drive.google.com/uc?export=view&id=13qKYUie8APx0Jue8QhJHaTchTRujcshF"
             width={320}
             height={180}
           />
@@ -32,18 +36,18 @@ export default function Blog() {
 
         {/* Post Details on the Right */}
         <div className="ml-5 flex flex-col justify-center h-full">
-          <h2 className="text-2xl font-semibold mb-2">Post Title 1</h2>
+          <h2 className="text-2xl font-semibold mb-2">The Future of AI in Gaming.</h2>
           <p className="text-lg text-gray-600 mb-2">
-            by <span className="font-medium">Author Name</span>
+            by <span className="font-medium">Naman Chaturvedi</span>
           </p>
           <p className="text-sm text-gray-500 mb-2">
-            Published on: <span className="font-medium">January 25, 2025</span>
+            Published on: <span className="font-medium"><p>January 25, 2025</p></span>
           </p>
           <p className="text-sm text-gray-500 mb-2">
-            Category: <span className="font-medium">Technology</span>
+            Category: <span className="font-medium">Gaming</span>
           </p>
           <p className="text-sm text-gray-500 mb-2">
-            Tags: <span className="font-medium">React, Next.js, Web Development</span>
+            Tags: <span className="font-medium">Gaming, Tech, AI</span>
           </p>
         </div>
       </div>

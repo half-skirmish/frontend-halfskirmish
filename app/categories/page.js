@@ -124,7 +124,7 @@ export default function Categories() {
                 onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "none")}
               >
                 <Image
-                  src="/blogsection.jpg"
+                  src="https://drive.google.com/uc?id=14B5P3JfRLKyaXpC2g6by5G1ixbnq0cEQ"
                   alt="Blog Category"
                   layout="fill"
                   objectFit="cover"
@@ -184,7 +184,7 @@ export default function Categories() {
                 onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "none")}
               >
                 <Image
-                  src="/designsection.jpg"
+                  src="https://drive.google.com/uc?id=14Edn8jrSZoJwmr0BEDmr7N8qZy7GY-FB"
                   alt="Designs Category"
                   layout="fill"
                   objectFit="cover"

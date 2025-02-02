@@ -5,7 +5,7 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "drive.google.com",
-        pathname: "/",
+        pathname: "/**",  // Use '**' to allow all paths under this hostname
       },
       {
         protocol: "https",
