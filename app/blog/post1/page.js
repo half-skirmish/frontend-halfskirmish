@@ -64,7 +64,7 @@ export default function BlogPost() {
           {/* Featured Image */}
           <div className="relative w-full h-80 mb-8 rounded-xl overflow-hidden shadow-xl">
             <Image
-              src="/meme.png" // Replace with the featured image path
+              src="https://drive.google.com/uc?id=14G9plwXhnpw4QqKIVq9HTIgxB4OBPQEf" // Replace with the featured image path
               alt="Featured Image"
               layout="fill"
               objectFit="cover"
@@ -77,17 +77,8 @@ export default function BlogPost() {
             <p>With the launch of the RTX 5000 series, NVIDIA's CEO Jensen Huang introduced us to a newer version of Deep Learning Super Sampling, which is called Multi-Frame Generation.
               Introduced back with the RTX 20 Series in 2018, DLSS has been a crucial part of the newer game releases, as it offers a boost in Frame-rate for even older GPUs, which can be incapable at times, when running a newer title.
             </p>
-            <p> The first version of DLSS was showcased as a technology which rendered the visual assets at a lower resolution and would then upscale the picture with the help of the GPU's Tensor Cores.
-               </p>
-          </div>
-
-          {/* Tags */}
-          <div className="mb-8">
-            <strong>Tags:</strong>
-            <span className="ml-2 text-purple-600">Design</span>,
-            <span className="ml-2 text-teal-600">Gaming</span>,
-            <span className="ml-2 text-blue-600">Workout</span>
-            <span className="ml-2 text-purple-700">Half Skirmish.</span>
+            <p>The first version of DLSS was showcased as a technology which rendered the visual assets at a lower resolution and would then upscale the picture with the help of the GPU's Tensor Cores.
+            </p>
           </div>
 
           {/* Social Media Previews */}

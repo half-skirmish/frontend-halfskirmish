@@ -36,12 +36,12 @@ export default function Blog() {
 
         {/* Post Details on the Right */}
         <div className="ml-5 flex flex-col justify-center h-full">
-          <h2 className="text-2xl font-semibold mb-2">The Future of AI in Gaming.</h2>
+          <h2 className="text-2xl font-semibold mb-2">The Future of AI in Gaming</h2>
           <p className="text-lg text-gray-600 mb-2">
             by <span className="font-medium">Naman Chaturvedi</span>
           </p>
           <p className="text-sm text-gray-500 mb-2">
-            Published on: <span className="font-medium"><p>January 25, 2025</p></span>
+            Published on: <span className="font-medium">Feb 2, 2025</span>
           </p>
           <p className="text-sm text-gray-500 mb-2">
             Category: <span className="font-medium">Gaming</span>
