@@ -13,8 +13,8 @@ export default function Designs() {
       {/* Introduction Image */}
       <div className="mb-8">
         <img
-          src="/stock.jpg"
-          alt="Blog Image"
+          src="/designs.jpg"
+          alt="Designs Image"
         />
       </div>
 

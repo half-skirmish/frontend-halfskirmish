@@ -41,7 +41,7 @@ export default function BlogPost() {
         <div className="max-w-4xl mx-auto">
           {/* Blog Header */}
           <h1 className="text-5xl font-bold mb-6 text-center leading-tight tracking-tight font-inter">
-            Welcome to halfskirmish.com
+            The Future of AI in Gaming: How Machine Learning is Changing the Industry
           </h1>
 
           {/* Author Details */}
@@ -56,7 +56,7 @@ export default function BlogPost() {
             <div className="ml-4">
               <p className="font-semibold text-lg">Naman Chaturvedi</p>
               <p className="text-sm text-gray-500">
-                January 27, 2025 · Category: Web Development
+                February 2, 2025 · Category: Gaming
               </p>
             </div>
           </div>
@@ -74,9 +74,11 @@ export default function BlogPost() {
 
           {/* Blog Content */}
           <div className="prose prose-lg max-w-none mb-8 font-roboto">
-            <p>THE GRIND WON'T STOP!</p>
-            <p>The Website's main structure's ready. We winning!</p>
-            <p>Stay tuned!</p>
+            <p>With the launch of the RTX 5000 series, NVIDIA's CEO Jensen Huang introduced us to a newer version of Deep Learning Super Sampling, which is called Multi-Frame Generation.
+              Introduced back with the RTX 20 Series in 2018, DLSS has been a crucial part of the newer game releases, as it offers a boost in Frame-rate for even older GPUs, which can be incapable at times, when running a newer title.
+            </p>
+            <p> The first version of DLSS was showcased as a technology which rendered the visual assets at a lower resolution and would then upscale the picture with the help of the GPU's Tensor Cores.
+               </p>
           </div>
 
           {/* Tags */}

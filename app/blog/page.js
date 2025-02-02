@@ -12,7 +12,7 @@ export default function Blog() {
       {/* Introduction Image */}
       <div className="mb-8">
         <img
-          src="/stock.jpg"
+          src="/writings.jpg"
           alt="Blog Image"
         />
       </div>
