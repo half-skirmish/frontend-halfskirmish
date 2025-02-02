@@ -123,7 +123,7 @@ export const Navbar = () => {
 
                         {/* YouTube Button */}
                         <a
-                            href="https://www.youtube.com/@halfskirmish/" // YT LINK
+                            href="/" // YT LINK
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-[24px] py-2 px-4 w-full text-center"
