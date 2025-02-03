@@ -1,4 +1,3 @@
-// Designs Page
 "use client";
 import { Navbar } from "../components/Navbar"; // Use named import
 import Image from "next/image"; // Import Image component
@@ -35,21 +34,22 @@ export default function Designs() {
             />
           </a>
           <div className="flex flex-col justify-between p-4">
-            <h3 className="text-xl font-bold text-black mb-2">To Be Added</h3>
-            <p className="text-sm text-gray-600 mb-1">Category: <span className="font-medium">Design</span></p>
-            <p className="text-sm text-gray-600 mb-1">Tools: <span className="font-medium">Adobe Suite, Figma</span></p>
-            <p className="text-sm text-gray-600">Date: <span className="font-medium">To Be Added.</span></p>
+            <h3 className="text-xl font-bold text-black dark:text-white mb-2">To Be Added</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-300 mb-1">Category: <span className="font-medium text-black dark:text-white">Design</span></p>
+            <p className="text-sm text-gray-600 dark:text-gray-300 mb-1">Tools: <span className="font-medium text-black dark:text-white">Adobe Suite, Figma</span></p>
+            <p className="text-sm text-gray-600 dark:text-gray-300">Date: <span className="font-medium text-black dark:text-white">To Be Added.</span></p>
           </div>
         </div>
-
-
       </div>
+      
+       {/* Horizontal Separator */}
+       <div className="w-16 h-0.5 bg-black dark:bg-white mx-auto mb-16 rounded-full"></div>
 
       {/* Spacer before Footer */}
-      <div className="h-16 bg-white" />
+      <div className="h-16 bg-white dark:bg-black" />
 
       {/* Footer */}
-      <Footer className="w-full" />
+      <Footer className="w-full bg-white dark:bg-black text-black dark:text-white" />
     </section>
   );
 }
