@@ -43,10 +43,11 @@ export default function Homepage() {
             style={{
               fontFamily: "Inter",
               fontWeight: "bold",
-              fontSize: "64px",
+              fontSize: "51px",
               color: isDarkMode ? "white" : "",
               margin: 0,
               paddingBottom: "10px",
+              alignItems: 'center'
             }}
           >
             RECENT POSTS
