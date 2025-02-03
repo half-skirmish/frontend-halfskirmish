@@ -10,78 +10,43 @@ const inter = Inter({
   subsets: ['latin'],
 });
 
+const posts = [
+  { title: 'AI in Gaming', image: 'https://drive.google.com/uc?export=view&id=13qKYUie8APx0Jue8QhJHaTchTRujcshF', link: '/blog/post1'}
+];
+
 export default function Homepage() {
   const handleClick = (index) => {
-    window.location.href = `/post/${index + 1}`;
+    window.location.href = `/blog/post${index + 1}`;
   };
 
   return (
     <section className='bg-grey-500 flex flex-col items-center justify-center' >
       <div className="animate-slide-up"></div>
+
       {/* Introduction Image */}
-      <div
-        
-      >
-        <img
-          src="/stock.jpg"
-          alt="Introduction Image"
-          
-        />
+      <div>
+        <img src="/stock.jpg" alt="Introduction Image" />
       </div>
 
       {/* Image Boxes Section */}
-      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5      mt-16 w-screen'> 
-      {['Title 1', 'Title 2', 'Title 3', 'Title 4', 'Title 5'].map((title, index) => (
+      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 mt-16 w-screen'> 
+        {posts.map((post, index) => (
           <div key={index} className="flex items-center justify-center">
-            <button
-              onClick={() => handleClick(index)}
-             
-            >
+            <button onClick={() => handleClick(index)}>
               <div className="w-48 h-48">
-                <Image className='rounded-2xl'
-                alt='Image'
-                  src="/stock.jpg"
-                  width={320} height={320}
-                  
-                  
+                <Image 
+                  className='rounded-2xl'
+                  alt={post.title}
+                  src={post.image}
+                  width={320} 
+                  height={320} 
                 />
               </div>
-              <p className="image-title">{title}</p>
+              <p className="image-title">{post.title}</p>
             </button>
           </div>
         ))}
       </div>
-
-      {/* <div className="image-boxes flex items-center justify-center">
-        {['Title 1', 'Title 2', 'Title 3', 'Title 4', 'Title 5'].map((title, index) => (
-          <div key={index} className="image-box">
-            <button
-              onClick={() => handleClick(index)}
-              style={{
-                textDecoration: 'none',
-                color: 'inherit',
-                background: 'none',
-                border: 'none',
-                cursor: 'pointer',
-                display: 'block',
-              }}
-            >
-              <div className="image-wrapper">
-                <img
-                  src="/stock.jpg"
-                  alt={`Image ${index + 1}`}
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                  }}
-                />
-              </div>
-              <p className="image-title">{title}</p>
-            </button>
-          </div>
-        ))}
-      </div> */}
 
       {/* See More Button */}
       <div className="see-more-button">
@@ -91,46 +56,12 @@ export default function Homepage() {
       </div>
 
       {/* Spacer before Footer */}
-      <div
-        style={{
-          height: '60px', // Adjust the height of the spacing
-          backgroundColor: '#ffffff', // Match the page background color
-        }}
-      />
+      <div style={{ height: '60px', backgroundColor: '#ffffff' }} />
 
       {/* Footer */}
-      <Footer className= 'w-screen' />
+      <Footer className='w-screen' />
 
-      {/* Media Query Styles */}
       <style jsx>{`
-        .image-boxes {
-          display: flex;
-          justify-content: space-between;
-          gap: 16px;
-          margin-top: 32px;
-          max-width: calc(100% - 160px);
-          margin-left: auto;
-          margin-right: auto;
-          flex-wrap: wrap;
-        }
-
-        .image-box {
-          flex: 1;
-          max-width: 180px;
-          text-align: center;
-          position: relative;
-          flex-shrink: 0;
-        }
-
-        .image-wrapper {
-          width: 240px;
-          height: 180px;
-          background-color: #000;
-          border-radius: 8px;
-          overflow: hidden;
-          margin: 0 auto;
-        }
-
         .image-title {
           margin-top: 13px;
           font-size: 16px;
@@ -158,21 +89,6 @@ export default function Homepage() {
 
         .see-more-button button:hover {
           background-color: #003366;
-        }
-
-        /* Mobile View (max-width: 768px) */
-        @media (max-width: 768px) {
-          .image-boxes {
-            flex-wrap: nowrap;
-            overflow-x: auto;
-            gap: 16px; /* Space between posts */
-            padding: 0 16px; /* Horizontal padding for scrolling */
-          }
-
-          .image-box {
-            flex: 0 0 auto;
-            max-width: 240px;
-          }
         }
       `}</style>
     </section>
