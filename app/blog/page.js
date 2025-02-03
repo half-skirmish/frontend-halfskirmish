@@ -40,7 +40,7 @@ export default function Blog() {
             by <span className="font-medium text-black dark:text-white">Naman Chaturvedi</span>
           </p>
           <p className="text-sm text-gray-500 mb-2 dark:text-gray-400">
-            Published on: <span className="font-medium text-black dark:text-white">Feb 2, 2025</span>
+            Published on: <span className="font-medium text-black dark:text-white">Feb 4, 2025</span>
           </p>
           <p className="text-sm text-gray-500 mb-2 dark:text-gray-400">
             Category: <span className="font-medium text-black dark:text-white">Gaming</span>

@@ -56,7 +56,7 @@ export default function BlogPost() {
             <div className="ml-4">
               <p className="font-semibold text-lg">Naman Chaturvedi</p>
               <p className="text-sm text-gray-500">
-                February 2, 2025 · Category: Gaming
+                February 4, 2025 · Category: Gaming
               </p>
             </div>
           </div>

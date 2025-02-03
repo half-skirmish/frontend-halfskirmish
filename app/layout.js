@@ -12,8 +12,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Half Skirmish's Portfolio",
-  description: "1% Better Every Damn Day!",
+  title: "Naman Chaturvedi",
+  description: "The Grind Won't Stop",
 };
 
 export default function RootLayout({ children }) {

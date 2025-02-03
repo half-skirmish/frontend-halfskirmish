@@ -67,9 +67,11 @@ export const Navbar = () => {
                     </a>
 
                     {/* Let's Talk Button */}
+                    <Link href="/contact">
                     <button className="text-[22px] bg-purple-700 text-white w-[133px] h-[40px] rounded-[20px] hover:bg-[#1D3557] transition-colors">
                         Let's Talk
                     </button>
+                    </Link>
                 </div>
 
                 {/* Mobile Menu Toggle Button */}
