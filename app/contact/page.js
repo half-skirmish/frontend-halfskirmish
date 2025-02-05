@@ -35,8 +35,8 @@ export default function Contact() {
         <div className="mb-8">
           <h3 className="text-2xl font-semibold">My Interests & Hobbies</h3>
           <p className="mt-2 text-lg">
-            In my free time, I enjoy Gaming, Designing, and reading self-improvement books. I am also passionate about Music and
-            Fitness. I also like to discuss over Technology and Gaming.
+            In my free time, I enjoy Gaming, Designing, and reading self-improvement books. I am also passionate about Music,
+            Fitness, Technological Innovations and Computer Hardware.
           </p>
         </div>
 
