@@ -10,15 +10,16 @@ export default function Designs() {
       <Navbar />
 
       {/* Introduction Image */}
-      <div className="relative w-full h-64 mb-8">
-        <Image
-          src="https://drive.google.com/uc?id=13sUGQwugqrwFaQod8x4RftJvrpPC_TgS"
-          alt="Designs Image"
-          fill
-          style={{ objectFit: 'cover' }}
-          sizes="100vw"
-        />
-      </div>
+      <div className="landing-image-container relative w-full mb-8">
+              <Image
+                src="https://drive.google.com/uc?export=view&id=15ealGRSqGTqPIj2MTIGuHsOc6S5lpMQF"
+                alt="Landing Image"
+                width={2560}
+                height={1440} // Setting height according to the image's size
+                className="landing-image"
+                layout="intrinsic" // Ensures the image maintains aspect ratio
+              />
+            </div>
 
       {/* Blog Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-16 px-4 sm:px-16 w-full">
