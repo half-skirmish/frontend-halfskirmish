@@ -10,16 +10,15 @@ export default function Blog() {
       <Navbar />
 
       {/* Introduction Image */}
-      <div className="landing-image-container relative w-full h-h-64 mb-8">
-                    <Image
-                      src="https://drive.google.com/uc?export=view&id=15nX1q_3HqEhAOlz8DrESAUcVNAw0it9y"
-                      alt="Landing Image"
-                      width={2560}
-                      height={1440} // Setting height according to the image's size
-                      className="landing-image"
-                      layout="intrinsic" // Ensures the image maintains aspect ratio
-                    />
-                  </div>
+      <div className="relative w-full h-64 mb-8">
+        <Image
+          src="https://drive.google.com/uc?id=140KFz2bbICEYIn0lQaZHZU2zm2ilse-Y"
+          alt="Blog Image"
+          fill
+          style={{ objectFit: 'cover' }}
+          sizes="100vw"
+        />
+      </div>
 
       {/* First Post */}
       <div className="flex justify-start items-center w-full mb-16 pl-16">
