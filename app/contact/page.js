@@ -1,11 +1,11 @@
 "use client";
 
-import { FaLinkedin, FaBehance, FaInstagramSquare } from 'react-icons/fa';
+import { FaLinkedin, FaBehance } from 'react-icons/fa';
 
 export default function Contact() {
   return (
-    <div className="min-h-screen bg-gray-100 p-8">
-      <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-lg">
+    <div className="min-h-screen bg-gray-900 p-8 text-white">
+      <div className="max-w-4xl mx-auto bg-gray-800 p-6 rounded-lg shadow-lg">
         <h1 className="text-4xl font-bold text-center mb-6">Contact Me</h1>
 
         {/* Contact Info */}
@@ -15,10 +15,10 @@ export default function Contact() {
           <p className="mt-1 text-lg">Email: namansdiaries@gmail.com</p>
           <div className="mt-4 flex space-x-6">
             <a href="https://www.linkedin.com/in/naman1905" target="_blank" rel="noopener noreferrer">
-              <FaLinkedin size={30} className="text-blue-600 hover:text-blue-700" />
+              <FaLinkedin size={30} className="text-blue-400 hover:text-blue-500" />
             </a>
             <a href="https://www.behance.net/naman1905" target="_blank" rel="noopener noreferrer">
-              <FaBehance size={30} className="text-blue-400 hover:text-blue-500" />
+              <FaBehance size={30} className="text-blue-300 hover:text-blue-400" />
             </a>
           </div>
         </div>
@@ -44,75 +44,25 @@ export default function Contact() {
         <div className="mb-8">
           <h3 className="text-2xl font-semibold">My Design & Development Skills</h3>
 
-          <div className="mt-4">
-            <p className="text-lg">Figma</p>
-            <div className="w-full bg-gray-200 rounded-full h-2.5">
-              <div className="bg-pink-500 h-2.5 rounded-full" style={{ width: '80%' }}></div>
+          {[
+            { skill: "Figma", width: "80%", color: "bg-pink-500" },
+            { skill: "Adobe Photoshop", width: "80%", color: "bg-blue-400" },
+            { skill: "Adobe Premiere Pro", width: "80%", color: "bg-blue-600" },
+            { skill: "Adobe Illustrator", width: "60%", color: "bg-yellow-500" },
+            { skill: "Adobe XD", width: "60%", color: "bg-purple-500" },
+            { skill: "Adobe InDesign", width: "50%", color: "bg-pink-600" },
+            { skill: "Canva", width: "80%", color: "bg-pink-400" },
+            { skill: "HTML", width: "40%", color: "bg-red-400" },
+            { skill: "CSS", width: "40%", color: "bg-blue-300" },
+            { skill: "JavaScript", width: "40%", color: "bg-yellow-400" },
+          ].map((item, index) => (
+            <div key={index} className="mt-4">
+              <p className="text-lg">{item.skill}</p>
+              <div className="w-full bg-gray-700 rounded-full h-2.5">
+                <div className={`${item.color} h-2.5 rounded-full`} style={{ width: item.width }}></div>
+              </div>
             </div>
-          </div>
-
-          <div className="mt-4">
-            <p className="text-lg">Adobe Photoshop</p>
-            <div className="w-full bg-gray-200 rounded-full h-2.5">
-              <div className="bg-blue-500 h-2.5 rounded-full" style={{ width: '80%' }}></div>
-            </div>
-          </div>
-
-          <div className="mt-4">
-            <p className="text-lg">Adobe Premiere Pro</p>
-            <div className="w-full bg-gray-200 rounded-full h-2.5">
-              <div className="bg-blue-800 h-2.5 rounded-full" style={{ width: '80%' }}></div>
-            </div>
-          </div>
-
-          <div className="mt-4">
-            <p className="text-lg">Adobe Illustrator</p>
-            <div className="w-full bg-gray-200 rounded-full h-2.5">
-              <div className="bg-yellow-600 h-2.5 rounded-full" style={{ width: '60%' }}></div>
-            </div>
-          </div>
-
-          <div className="mt-4">
-            <p className="text-lg">Adobe XD</p>
-            <div className="w-full bg-gray-200 rounded-full h-2.5">
-              <div className="bg-purple-600 h-2.5 rounded-full" style={{ width: '60%' }}></div>
-            </div>
-          </div>
-
-          <div className="mt-4">
-            <p className="text-lg">Adobe InDesign</p>
-            <div className="w-full bg-gray-200 rounded-full h-2.5">
-              <div className="bg-pink-800 h-2.5 rounded-full" style={{ width: '50%' }}></div>
-            </div>
-          </div>
-
-          <div className="mt-4">
-            <p className="text-lg">Canva</p>
-            <div className="w-full bg-gray-200 rounded-full h-2.5">
-              <div className="bg-pink-400 h-2.5 rounded-full" style={{ width: '80%' }}></div>
-            </div>
-          </div>
-
-          <div className="mt-4">
-            <p className="text-lg">HTML</p>
-            <div className="w-full bg-red-200 rounded-full h-2.5">
-              <div className="bg-black h-2.5 rounded-full" style={{ width: '40%' }}></div>
-            </div>
-          </div>
-
-          <div className="mt-4">
-            <p className="text-lg">CSS</p>
-            <div className="w-full bg-red-200 rounded-full h-2.5">
-              <div className="bg-black h-2.5 rounded-full" style={{ width: '40%' }}></div>
-            </div>
-          </div>
-
-          <div className="mt-4">
-            <p className="text-lg">JavaScript</p>
-            <div className="w-full bg-gray-200 rounded-full h-2.5">
-              <div className="bg-black h-2.5 rounded-full" style={{ width: '40%' }}></div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>
